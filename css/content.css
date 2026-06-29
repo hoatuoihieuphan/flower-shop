@@ -34,3 +34,28 @@
     cursor:pointer;
     font-weight:500;
 }
+.card-title,
+.product-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 48px;
+}
+.product-price{
+    white-space: nowrap;
+}
+@media (max-width: 576px) {
+
+    .product-name{
+        font-size:14px;
+    }
+
+    .product-price{
+        font-size:15px;
+    }
+    .card-img-top{
+        width:85% !important;
+    }
+}
