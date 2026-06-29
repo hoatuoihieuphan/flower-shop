@@ -90,3 +90,49 @@ header {
 .pagination .page-item.disabled .page-link{
     color: #999;
 }
+
+.footer-flower img{
+
+    max-width:180px;
+
+}
+
+@media(max-width:768px){
+
+    .footer-flower{
+
+        text-align:center;
+
+    }
+
+    .footer-flower img{
+
+        max-width:150px;
+
+    }
+
+}
+.contact-address{
+
+    word-break:break-word;
+
+}
+.footer-flower p{
+
+    word-break:break-word;
+
+}
+.footer-flower .fab{
+
+    font-size:32px;
+
+}
+@media(max-width:768px){
+
+    .footer-flower .d-flex{
+
+        justify-content:center;
+
+    }
+
+}
