@@ -302,7 +302,7 @@ function renderProducts(){
 
     const currentProducts = products.slice(start,end);
 
-
+    // console.log(products.length);
 
     currentProducts.forEach(item=>{
 
@@ -323,12 +323,12 @@ function renderProducts(){
 
                 <div class="card-body text-center p-2">
 
-                    <h6>
+                    <h6 class="product-name">
                         ${item.name}
                     </h6>
 
 
-                    <p class="text-danger fw-bold">
+                    <p class="product-price text-danger fw-bold">
                         ${price} VNĐ
                     </p>
 
@@ -591,12 +591,6 @@ async function loadProducts() {
 
                 break;
 
-            case "Hoa tang lễ":
-                products = products.filter(p => p.danhmuc.includes(title));
-                originalProducts = [...products];
-
-                break;
-
             case "Chủ đề":
                 products = products.filter(p => p.chu_de.includes(name));
                 originalProducts = [...products];
@@ -702,8 +696,6 @@ async function init() {
     };
 
     await loadComponent("footer", "components/footer.html");
-
-    await loadProducts();
     
     const sortSelect = document.getElementById("sort-select");
 
