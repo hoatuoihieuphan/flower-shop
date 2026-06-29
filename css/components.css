@@ -135,4 +135,14 @@ header {
 
     }
 
+}#sort-select{
+    max-width:250px;
+}
+
+@media (max-width:768px){
+
+    #sort-select{
+        max-width:100%;
+    }
+
 }
