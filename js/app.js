@@ -533,6 +533,13 @@ function sortProducts(type) {
     renderProducts();
     renderPagination();
 }
+function containsKeyword(arr, keyword) {
+
+    return (arr || []).some(item =>
+        normalizeText(item).includes(keyword)
+    );
+
+}
 async function loadProducts() {
 
     try {
@@ -611,25 +618,28 @@ async function loadProducts() {
         }
 
         const keyword = params.get("search");
+
         if (keyword) {
 
             const search = normalizeText(keyword);
 
-            products = products.filter(product => {
+            products = products.filter(product =>
 
-                return (
-                    normalizeText(product.name).includes(search) ||
-                    normalizeText(product.danhmuc).includes(search) ||
-                    normalizeText(product.hoa_tuoi).includes(search) ||
-                    normalizeText(product.thiet_ke).includes(search) ||
-                    normalizeText(product.chu_de).includes(search) ||
+                normalizeText(product.name).includes(search) ||
 
-                    (product.loai || []).some(item => normalizeText(item).includes(search))
-                );
+                containsKeyword(product.danhmuc, search) ||
 
-            });
+                containsKeyword(product.hoa_tuoi, search) ||
+
+                containsKeyword(product.thiet_ke, search) ||
+
+                containsKeyword(product.chu_de, search) ||
+
+                containsKeyword(product.loai, search)
+
+            );
+
             originalProducts = [...products];
-
 
         }
         renderProducts();
